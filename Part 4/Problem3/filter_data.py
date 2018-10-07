@@ -17,24 +17,24 @@ def load_data(city, month, day):
     """
     
     # load data file into a dataframe
-    df = 
+    df = pd.read_csv(city+".csv")
 
     # convert the Start Time column to datetime
-    df['Start Time'] = 
+    df['Start Time'] = pd.to_datetime(df['Start Time'])
 
     # extract month and day of week from Start Time to create new columns
-    df['month'] = 
-    df['day_of_week'] = 
+    df['month'] =  df['Start Time'].dt.month
+    df['day_of_week'] = df['Start Time'].dt.dayofweek
 
 
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = 
-    
+                
         # filter by month to create the new dataframe
-        df = 
+        df = df[(df['month'] == month) & (dfp['day_of_wek'] == day)]
+
 
     # filter by day of week if applicable
     if day != 'all':
