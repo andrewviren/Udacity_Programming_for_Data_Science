@@ -31,15 +31,20 @@ def load_data(city, month, day):
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
+        month_num = months.index(month)+1
                 
         # filter by month to create the new dataframe
-        df = df[(df['month'] == month) & (dfp['day_of_wek'] == day)]
+        df = df[(df['month'] == month_num)]
 
 
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
-        df = 
+        days =['monday','tuesday','wednesday','thursday','friday','saturday','sunday']
+        day_num = days.index(day)
+        
+        df = df[(df['day_of_week'] == day_num)]
+       
     
     return df
     
